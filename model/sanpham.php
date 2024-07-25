@@ -1,10 +1,10 @@
 <?php
 function load_sp_home(){
-    $query = "SELECT * FROM sanpham ORDER BY id desc limit 0,10";
+    $query="SELECT * FROM sanpham ORDER BY id desc limit 0,10";
     return pdo_query($query);
 }
 function load_sp_nb(){
-    $query = "SELECT * FROM sanpham ORDER BY luotxem desc limit 0,8";
+    $query="SELECT * FROM sanpham ORDER BY luotxem desc limit 0,8";
     return pdo_query($query);
 }
 function load_all_sp($kyw,$page){
@@ -13,7 +13,7 @@ function load_all_sp($kyw,$page){
         $query .=" AND (tensp like '%".$kyw."%' OR giasp LIKE '%" . $kyw . "%')";
     }
     if($page>0){
-        $batdau = intval($page*9-9);
+        $batdau=intval($page*9-9);
         $query .=" ORDER BY id desc limit $batdau,9";
     }else{
         $query .=" ORDER BY id asc";
@@ -60,7 +60,7 @@ function load_all_spdm($iddm,$kyw,$giadau,$giacuoi,$page){
     return pdo_query($query);
 }
 function insert_sp($danhmuc, $tensp, $giasp, $image,$giakm, $soluong,$khuyenmai, $mota) {
-    $conn = pdo_get_connection();
+    $conn=pdo_get_connection();
     $query_check = "SELECT COUNT(*) as count FROM sanpham WHERE image = :image OR tensp=:tensp";
     $stmt = $conn->prepare($query_check);
     $stmt->execute([':image'=> $image,':tensp'=> $tensp]);
@@ -73,7 +73,7 @@ function insert_sp($danhmuc, $tensp, $giasp, $image,$giakm, $soluong,$khuyenmai,
     } else {
         $query="INSERT INTO `sanpham`(`iddm`, `tensp`, `giasp`,`giakm`, `image`, `soluong`,`khuyenmai`, `mota`) 
         VALUES ('$danhmuc','$tensp','$giasp','$giakm','$image','$soluong','$khuyenmai','$mota')";
-        // $result2= pdo_execute ($query);
+        $result2=pdo_execute($query);
         echo '<script>
                     alert("Bạn đã thêm sản phẩm thành công !");
                     window.location.href="?act=listsp";
@@ -81,7 +81,7 @@ function insert_sp($danhmuc, $tensp, $giasp, $image,$giakm, $soluong,$khuyenmai,
     }
 }
 function update_sp($id,$danhmuc,$tensp,$giasp,$giakm,$image,$oldImage,$soluong,$khuyenmai,$mota,$trangthai){
-    $conn = pdo_get_connection();
+    $conn=pdo_get_connection();
     $query="UPDATE `sanpham` SET `iddm`=:danhmuc,`tensp`=:tensp,`giasp`=:giasp,`giakm`=:giakm,`image`=:image,`soluong`=:soluong,`khuyenmai`=:khuyenmai,`mota`=:mota,`trangthai`=:trangthai WHERE `id`=:id";
     $state=$conn->prepare($query);
     $state->execute([
