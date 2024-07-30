@@ -86,7 +86,7 @@ function themgiohang(idsanpham,giakm,sl){
             }, 1500);
         },
         error: function(error) {
-            window.location.href="../../duan1/controller/index.php?act=dangnhap";
+            window.location.href="../../du_an_1/controller/index.php?act=dangnhap";
           }
     });
 }
