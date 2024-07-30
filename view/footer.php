@@ -110,14 +110,7 @@
         }
     </script>
     <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-    <df-messenger 
-    intent="WELCOME"
-    chat-title="du_an_1"
-    agent-id="43911016-6190-4d15-8c93-35ce28710a81"
-    language-code="vi"
-    ></df-messenger>
     <script src="../assets/giao_dien_home/assets/js/main.js"></script>
     <script src="../assets/js/lcdmobile.js"></script>
 </body>
-
 </html>

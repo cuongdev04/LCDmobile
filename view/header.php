@@ -58,7 +58,7 @@
                     <div class="row align-items-center">
                         <div class="col-lg-3 col-md-6 col-6">
                             <div class="logo">
-                                <a href="?act=trangchu"><img src="../assets/images/lcdmobile_logo.jpg" alt="logo"></a>
+                                <a href="?act=trangchu"><img src="../assets/images/lcdmobile_logo.jpg" alt="logo" width="50%"></a>
                             </div>
                         </div>
                         <div class="col-lg-6 d-none d-lg-block d-flex justify-content-center">
