@@ -58,11 +58,12 @@ function binhluanjs(id,hovaten){
 //end ajax binh luan
 
 //ajax them gio hang
-function themgiohang(idsanpham,giakm){
+function themgiohang(idsanpham,giakm,sl){
     $.ajax({
         type: 'POST',
         url: '../view/cart/ajaxthemgiohang.php',
         data: {
+            sl: sl,
             id: idsanpham,
             giasp: giakm
         },
@@ -85,7 +86,7 @@ function themgiohang(idsanpham,giakm){
             }, 1500);
         },
         error: function(error) {
-            window.location.href="../../du_an_1/controller/index.php?act=dangnhap";
+            window.location.href="../../duan1/controller/index.php?act=dangnhap";
           }
     });
 }
