@@ -73,7 +73,7 @@ function insert_sp($danhmuc, $tensp, $giasp, $image,$giakm, $soluong,$khuyenmai,
     } else {
         $query="INSERT INTO `sanpham`(`iddm`, `tensp`, `giasp`,`giakm`, `image`, `soluong`,`khuyenmai`, `mota`) 
         VALUES ('$danhmuc','$tensp','$giasp','$giakm','$image','$soluong','$khuyenmai','$mota')";
-        // $result2=pdo_execute($query);
+        $result2=pdo_execute($query);
         echo '<script>
                     alert("Bạn đã thêm sản phẩm thành công !");
                     window.location.href="?act=listsp";

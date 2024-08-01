@@ -58,12 +58,11 @@ function binhluanjs(id,hovaten){
 //end ajax binh luan
 
 //ajax them gio hang
-function themgiohang(idsanpham,giakm,sl){
+function themgiohang(idsanpham,giakm){
     $.ajax({
         type: 'POST',
         url: '../view/cart/ajaxthemgiohang.php',
         data: {
-            sl: sl,
             id: idsanpham,
             giasp: giakm
         },
