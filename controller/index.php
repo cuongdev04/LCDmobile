@@ -527,7 +527,7 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                                 }
                                 if ($check) {
                                     insert_cart($_SESSION['user']['id'], $sanpham['id'], $soluong, $thanhtien);
-                                    header("location: ?act=giohang");
+                                    header("location: ?act=tieptucdathang");
                                 }
                         }else{
                             header("location: ?act=dangnhap");
