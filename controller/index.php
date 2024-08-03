@@ -521,16 +521,17 @@ if(isset($_GET['act'])&&($_GET['act']!="")){
                                     $giohang['thanhtien'] = $sanpham['giakm'] * $giohang['soluong'];
                                     update_giohang($giohang['soluong'],$giohang['thanhtien'],$giohang['idsanpham']);
                                     $check = false;
-                                    header("location: ?act=giohang");
+                                    header("location: ?act=tieptucdathang");
+                                    // header("location: ?act=giohang");
                                     break;
                                     }
                                 }
                                 if ($check) {
                                     insert_cart($_SESSION['user']['id'], $sanpham['id'], $soluong, $thanhtien);
-                                    header("location: ?act=tieptucdathang");
+                                    header("location: ?act=giohang");
                                 }
                         }else{
-                            header("location: ?act=dangnhap");
+                            header("location: ?act=tieptucdathang");
                         }
                     }
                 }
