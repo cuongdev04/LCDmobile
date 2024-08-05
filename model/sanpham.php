@@ -73,16 +73,16 @@ function insert_sp($danhmuc, $tensp, $giasp, $image,$giakm, $soluong,$khuyenmai,
     } else {
         $query="INSERT INTO `sanpham`(`iddm`, `tensp`, `giasp`,`giakm`, `image`, `soluong`,`khuyenmai`, `mota`) 
         VALUES ('$danhmuc','$tensp','$giasp','$giakm','$image','$soluong','$khuyenmai','$mota')";
-        // $result2=pdo_execute($query);
+        $result2=pdo_execute($query);
         echo '<script>
                     alert("Bạn đã thêm sản phẩm thành công !");
                     window.location.href="?act=listsp";
                 </script>';
     }
 }
-function update_sp($id,$danhmuc,$tensp,$giasp,$giakm,$image,$oldImage,$soluong,$khuyenmai,$mota,$trangthai){
+function update_sp($id,$sl,$danhmuc,$tensp,$giasp,$giakm,$image,$oldImage,$soluong,$khuyenmai,$mota,$trangthai){
     $conn=pdo_get_connection();
-    $query="UPDATE `sanpham` SET `iddm`=:danhmuc,`tensp`=:tensp,`giasp`=:giasp,`giakm`=:giakm,`image`=:image,`soluong`=:soluong,`khuyenmai`=:khuyenmai,`mota`=:mota,`trangthai`=:trangthai WHERE `id`=:id";
+    $query="UPDATE `sanpham` SET `iddm`=:danhmuc,`tensp`=:tensp,`giasp`=:giasp,`giakm`=:giakm,`image`=:image,`soluong`=:soluong,`khuyenmai`=:khuyenmai,`mota`=:mota,`trangthai`=:trangthai,`sl`=:sl WHERE `id`=:id";
     $state=$conn->prepare($query);
     $state->execute([
         ':id'=>$id,
@@ -94,7 +94,8 @@ function update_sp($id,$danhmuc,$tensp,$giasp,$giakm,$image,$oldImage,$soluong,$
         ':soluong'=>$soluong,
         ':khuyenmai'=>$khuyenmai,
         ':trangthai'=>$trangthai,
-        ':mota'=>$mota
+        ':mota'=>$mota,
+        ':sl'=>$sl
     ]);
 }
 function update_sl_sp($id,$soluong){

@@ -58,24 +58,26 @@ function binhluanjs(id,hovaten){
 //end ajax binh luan
 
 //ajax them gio hang
-function themgiohang(idsanpham,giakm,sl){
+function themgiohang(idsanpham, giakm) {
+    var qtybutton = parseInt($(".cart-plus-minus-box").val()); // Lấy giá trị số lượng từ ô nhập
+
     $.ajax({
         type: 'POST',
         url: '../view/cart/ajaxthemgiohang.php',
         data: {
-            sl: sl,
             id: idsanpham,
-            giasp: giakm
+            giasp: giakm,
+            qtybutton: qtybutton // Gửi thông tin số lượng
         },
         dataType: "JSON",
-        success: function(response){
-            var check=true;
+        success: function(response) {
+            var check = true;
             response.forEach(element => {
-                if(idsanpham==element['idsanpham']){
-                    check=false;
+                if (idsanpham == element['idsanpham']) {
+                    check = false;
                 }
-            }); 
-            if(check){
+            });
+            if (check) {
                 var soluongcu = parseInt($("#countgh").text());
                 var soluongmoi = soluongcu + 1;
                 $("#countgh").text(soluongmoi);
@@ -86,10 +88,11 @@ function themgiohang(idsanpham,giakm,sl){
             }, 1500);
         },
         error: function(error) {
-            window.location.href="../../du_an_1/controller/index.php?act=dangnhap";
-          }
+            window.location.href = "../../du_an_1/controller/index.php?act=dangnhap";
+        }
     });
 }
+
 //end ajax them gio hang
 $(".phantrang ul li a").click(function(){
     // alert("okk");
