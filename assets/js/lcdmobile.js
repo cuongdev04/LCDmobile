@@ -58,12 +58,8 @@ function binhluanjs(id,hovaten){
 //end ajax binh luan
 
 //ajax them gio hang
-<<<<<<< HEAD
-=======
 function themgiohang(idsanpham, giakm) {
     var qtybutton = parseInt($(".cart-plus-minus-box").val()); // Lấy giá trị số lượng từ ô nhập
-
->>>>>>> 30/7
     $.ajax({
         type: 'POST',
         url: '../view/cart/ajaxthemgiohang.php',
